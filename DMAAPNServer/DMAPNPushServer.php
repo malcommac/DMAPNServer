@@ -167,6 +167,21 @@
             }
         }
         
+        /**
+	 * Add an array of messages inside server queue. Each message must be a DMAPNMessage object
+         * 
+	 * @param   array  $messages     array of DMAPNMessage objects to add
+         * @return  bool                 true if added, false otherwise
+	 * @access  public
+	 */
+        
+        function addMessages($messagesArray) {
+            if (is_array($messagesArray) && count($messagesArray) > 0) {
+                $this->apn_queuedMessages = array_merge ($this->apn_queuedMessages,$messagesArray);
+                return true;
+            } else return false;
+        }
+        
          /**
 	 * Remove a message from queue's list by specific it's unique identifier.
          * 
