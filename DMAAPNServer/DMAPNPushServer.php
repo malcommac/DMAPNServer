@@ -282,7 +282,6 @@
 	 * @access  public
 	 */
         function disconnect() {
-            socket_close($this->serviceConnection);
             fclose($this->apn_socket); 
             $this->logMessage("Connection closed");
         }
@@ -520,12 +519,6 @@
                             "message"       =>  $message,
                             "info"          =>  $infoDictionary);
         }
-        
-        
-        function unregisteredDevices() {
-            
-        }
-        
     }
    
 ?>
