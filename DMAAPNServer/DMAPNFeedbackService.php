@@ -75,7 +75,7 @@
             $this->apn_hostName = ($isDevCert == true ? self::kAPPLEAPN_FEEDBACKSERVER_DEVELOPMENT : self::kAPPLEAPN_FEEDBACKSERVER_PRODUCTION);
             $this->apn_hostPort = self::kAPPLEAPN_FEEDBACKSERVER_PORT;
             if ($enable_debug == true)
-                $this->apn_logfilename = date("m.d.y.H.M.s",  time());
+                $this->apn_logfilename = "DMAPNFeedbackService_".date("m.d.y.H.M.s",  time());
         }
         
         /**

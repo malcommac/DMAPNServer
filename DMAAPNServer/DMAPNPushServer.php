@@ -119,7 +119,7 @@
                 $this->apn_certificatePswd = $cert_password;
                 
                 if ($enable_debug == true)
-                    $this->apn_logfilename = date("m.d.y.H.M.s",  time());
+                    $this->apn_logfilename = "DMAPNPushServer_".date("m.d.y.H.M.s",  time());
             }
         }
         
@@ -356,8 +356,10 @@
             }
             
             $not_sent_messages = ($total_notifications-$total_notifications_sent);
-            $this->logMessage("$total_notifications_sent notifications sent in ".$this->apn_queuedMessages." messages packets");
-            $this->logMessage("$not_sent_messages messages were not sent due to some errors");
+            $this->logMessage("$total_notifications_sent notifications sent in ".count($this->apn_queuedMessages)." messages packets");
+            if ($not_sent_messages > 0)
+                $this->logMessage("$not_sent_messages messages were not sent due to some errors");
+            else $this->logMessage ("All messages were sent successfully");
             
             return array("queued_messages"      => count($this->apn_queuedMessages),
                          "total_notifications"  => $total_notifications,
@@ -497,8 +499,7 @@
 			return null; // push sent
                     }
 		} else {
-                    $this->_reportMessage(  self::kREPORT_LOGMESSAGE,
-                                            "Message sent successfully to identifier [$identifier]");
+                    $this->_reportMessage(  self::kREPORT_LOGMESSAGE,"Message sent successfully");
                     return null; // push sent
 		}
             }
