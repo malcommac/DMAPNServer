@@ -1,7 +1,11 @@
 DMAPNServer
 ===========
 
-Apple APN Push Notification & Feedback Provider
+####**Apple APN Push Notification & Feedback Provider**
+
+*Created by [Daniele Margutti](http://www.danielemargutti.com) - [daniele.margutti@gmail.com](daniele.margutti@gmail.com).*
+
+### INTRODUCTION
 
 This is a set of open source PHP classes to interact with the [Apple Push Notification service](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html) for iOS and OS X (Mountain Lion).
 I've wrote it for my own needs and due to some limitations on my virtual server platform it does not support multiple concurrent threads sending
@@ -35,7 +39,7 @@ Sometimes APNs might attempt to deliver notifications for an application on a de
 
 This often happens when the user has uninstalled the application. In these cases, APNs informs the provider through a feedback service that the provider connects with.
 
-The feedback service maintains a list of devices per application for which there were recent, repeated failed attempts to deliver notifications. The provider should obtain this list of devices and stop sending notifications to them. For more on this service, see “The Feedback Service.”
+The feedback service maintains a list of devices per application for which there were recent, repeated failed attempts to deliver notifications. The provider should obtain this list of devices and stop sending notifications to them.
 
 ```php
 $APNFeedback = new DMAPNFeedbackService(false);
